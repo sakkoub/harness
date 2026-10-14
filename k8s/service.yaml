@@ -5,6 +5,7 @@ metadata:
   labels:
     app: harness-sample
 spec:
+  type: LoadBalancer
   selector:
     app: harness-sample
   ports:
