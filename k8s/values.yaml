@@ -1,0 +1,5 @@
+# Harness resolves these expressions at deploy time; the manifests read them
+# through Go templating. Harness expressions only work in values files, not in
+# the manifests themselves.
+image: <+artifacts.primary.image>
+version: <+artifacts.primary.tag>
