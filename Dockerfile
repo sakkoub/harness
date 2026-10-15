@@ -3,7 +3,8 @@ WORKDIR /src
 COPY pom.xml .
 RUN mvn -B -q dependency:go-offline
 COPY src ./src
-RUN mvn -B -q package
+# Tests already ran in the pipeline's "build and test" step
+RUN mvn -B -q package -DskipTests
 
 FROM eclipse-temurin:11-jre
 RUN useradd --system --uid 10001 app

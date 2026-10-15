@@ -17,14 +17,15 @@ spec:
     spec:
       containers:
         - name: harness-sample
-          # Built locally into minikube with: minikube image build -t harness-sample:1.0.0 .
-          image: harness-sample:1.0.0
+          # Resolved by Harness at deploy time from the service's primary artifact
+          # (docker.io/samerakk/harness-sample:<pipeline sequence id>, pushed by the CI stage).
+          image: <+artifacts.primary.image>
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           env:
             - name: APP_VERSION
-              value: "1.1.0"
+              value: "<+artifacts.primary.tag>"
           readinessProbe:
             httpGet:
               path: /healthz
