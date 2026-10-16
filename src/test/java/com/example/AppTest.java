@@ -9,13 +9,13 @@ class AppTest {
 
     @Test
     void greetsByName() {
-        assertEquals("Welcome, Harness!", App.greet("Harness"));
+        assertEquals("Hi there, Harness!", App.greet("Harness"));
     }
 
     @Test
     void greetsWorldWhenNameMissing() {
-        assertEquals("Welcome, World!", App.greet(null));
-        assertEquals("Welcome, World!", App.greet("  "));
+        assertEquals("Hi there, World!", App.greet(null));
+        assertEquals("Hi there, World!", App.greet("  "));
     }
 
     @Test

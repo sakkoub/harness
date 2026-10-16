@@ -13,9 +13,9 @@ public class App {
 
     public static String greet(String name) {
         if (name == null || name.isBlank()) {
-            return "Welcome, World!";
+            return "Hi there, World!";
         }
-        return "Welcome, " + name + "!";
+        return "Hi there, " + name + "!";
     }
 
     public static int add(int a, int b) {
@@ -40,7 +40,7 @@ public class App {
         server.createContext("/healthz", exchange -> respond(exchange, 200, "ok"));
         server.createContext("/", exchange -> {
             String name = nameFromQuery(exchange.getRequestURI().getRawQuery());
-            respond(exchange, 200, greet(name) + " Shipped by Harness canary (version " + VERSION + ")");
+            respond(exchange, 200, greet(name) + " Delivered safely by Harness CD (version " + VERSION + ")");
         });
         server.start();
         System.out.println("Listening on port " + port + ", version " + VERSION);
